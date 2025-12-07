@@ -1,8 +1,9 @@
-// main.ts
-import { serve } from "https://deno.land/std@0.224.0/http/server.ts";
+// main.ts — Minimal working Deno Deploy app
 
-serve(() => {
-  return new Response("🚀 FUTURISTIQ AI is running!", {
-    headers: { "content-type": "text/plain" },
-  });
-});
+export default {
+  async fetch(request: Request): Promise<Response> {
+    return new Response("FUTURISTIQ AI Platform is live!", {
+      headers: { "content-type": "text/plain" },
+    });
+  },
+};
