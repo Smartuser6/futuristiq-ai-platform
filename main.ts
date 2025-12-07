@@ -1,7 +1,7 @@
-// main.ts — Minimal working Deno Deploy app
+// main.ts — Fully Deno Deploy Compatible
 
 export default {
-  async fetch(request: Request): Promise<Response> {
+  async fetch(_request: Request): Promise<Response> {
     return new Response("FUTURISTIQ AI Platform is live!", {
       headers: { "content-type": "text/plain" },
     });
