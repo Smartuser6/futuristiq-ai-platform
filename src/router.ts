@@ -1,4 +1,4 @@
-import "./routes/mod.ts";
+import "./routes/mod.ts"; // gleicher Ordnerlevel? NEIN!
 
 type Handler = (req: Request) => Promise<Response> | Response;
 
