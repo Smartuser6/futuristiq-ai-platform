@@ -1,31 +1,32 @@
-type Handler = (req: Request) => Promise<Response> | Response;
+import { healthRoute } from "./routes/health.ts";
+import { marketsRoute } from "./routes/markets.ts";
+import { polymarketRoute } from "./routes/polymarket.ts";
+import { macroRoute } from "./routes/macro.ts";
 
-interface Route {
-  method: string;
-  path: string;
-  handler: Handler;
-}
+export function router(request: Request): Response | Promise<Response> {
+  const url = new URL(request.url);
+  const path = url.pathname;
 
-class Router {
-  routes: Route[] = [];
-
-  add(method: string, path: string, handler: Handler) {
-    this.routes.push({ method: method.toUpperCase(), path, handler });
+  // Health check
+  if (path === "/health") {
+    return healthRoute(request);
   }
 
-  match(path: string, method: string) {
-    const m = method.toUpperCase();
-    return this.routes.find(r => r.method === m && r.path === path);
+  // Markets endpoint
+  if (path === "/markets") {
+    return marketsRoute(request);
   }
+
+  // Polymarket endpoint
+  if (path.startsWith("/polymarket")) {
+    return polymarketRoute(request);
+  }
+
+  // Macro endpoint
+  if (path.startsWith("/macro")) {
+    return macroRoute(request);
+  }
+
+  // Default fallback
+  return new Response("FUTURISTIQ API RUNNING", { status: 200 });
 }
-
-export const router = new Router();
-
-// wichtig: diese Imports registrieren die Routen beim Start
-import "./routes/health.ts";
-import "./routes/markets.ts";
-import "./routes/mod.ts";
-
-export default router;
-
-if (path.startsWith("/polymarket")) return polymarketRoute(request);
