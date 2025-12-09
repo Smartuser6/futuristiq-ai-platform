@@ -1,7 +1,6 @@
 import { healthRoute } from "./routes/health.ts";
 import { marketsRoute } from "./routes/markets.ts";
 import { polymarketRoute } from "./routes/polymarket.ts";
-import { macroRoute } from "./routes/macro.ts";
 
 export function router(request: Request): Response | Promise<Response> {
   const url = new URL(request.url);
