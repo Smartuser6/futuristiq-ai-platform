@@ -1,6 +1,7 @@
-import { serve } from "https://deno.land/std@0.224.0/http/server.ts";
-import { handleRequest } from "./server.ts";
+import { router } from "./router.ts";
 
 console.log("FUTURISTIQ backend running");
 
-serve(handleRequest);
+Deno.serve((request) => {
+  return router(request);
+});
