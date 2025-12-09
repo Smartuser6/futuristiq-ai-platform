@@ -27,3 +27,5 @@ import "./routes/markets.ts";
 import "./routes/mod.ts";
 
 export default router;
+
+if (path.startsWith("/polymarket")) return polymarketRoute(request);
