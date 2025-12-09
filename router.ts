@@ -22,10 +22,6 @@ export function router(request: Request): Response | Promise<Response> {
     return polymarketRoute(request);
   }
 
-  // Macro endpoint
-  if (path.startsWith("/macro")) {
-    return macroRoute(request);
-  }
 
   // Default fallback
   return new Response("FUTURISTIQ API RUNNING", { status: 200 });
