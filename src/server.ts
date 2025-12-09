@@ -1,4 +1,4 @@
-
+import router from "./router.ts";
 
 export async function handleRequest(req: Request): Promise<Response> {
   const url = new URL(req.url);
@@ -6,7 +6,7 @@ export async function handleRequest(req: Request): Promise<Response> {
 
   if (!route) {
     return new Response("Not found", { status: 404 });
-    }
+  }
 
   try {
     return await route.handler(req);
