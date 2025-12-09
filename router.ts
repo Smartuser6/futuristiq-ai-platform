@@ -25,3 +25,5 @@ export const router = new Router();
 import "./routes/health.ts";
 import "./routes/markets.ts";
 import "./routes/mod.ts";
+
+export default router;
