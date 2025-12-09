@@ -1,7 +1,11 @@
-import { router } from "../router.ts";
+// routes/health.ts
 
-router.add("GET", "/health", () =>
-  new Response(JSON.stringify({ status: "ok" }), {
-    headers: { "content-type": "application/json; charset=utf-8" },
-  }),
-);
+export function healthRoute(request: Request): Response {
+  return new Response(
+    JSON.stringify({ status: "ok", timestamp: Date.now() }),
+    {
+      headers: { "Content-Type": "application/json" },
+      status: 200,
+    },
+  );
+}
