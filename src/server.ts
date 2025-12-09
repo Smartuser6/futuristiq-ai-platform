@@ -1,4 +1,4 @@
-import router from "./router.ts";
+
 
 export async function handleRequest(req: Request): Promise<Response> {
   const url = new URL(req.url);
