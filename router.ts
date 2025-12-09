@@ -24,3 +24,4 @@ export const router = new Router();
 // wichtig: diese Imports registrieren die Routen beim Start
 import "./routes/health.ts";
 import "./routes/markets.ts";
+import "./routes/mod.ts";
